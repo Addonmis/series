@@ -1,9 +1,9 @@
 <template>
     <div class="profile__wrap" v-if="isAuth == true">
-        <div class="profile__tab account">
+        <router-link to="/profile" class="profile__tab account">
             <span class="profile__name">{{profileName}}</span>
             <span class="subTitle">профиль</span>
-        </div>
+        </router-link>
         <div class="profile__tab notices">
             <i class="far fa-bell"></i>
         </div>
@@ -41,7 +41,8 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: #b67cd5;
+            text-decoration: none;
+            background: #333333;
             padding: 0.5em 1em;
             color: #ffffff;
             cursor: pointer;

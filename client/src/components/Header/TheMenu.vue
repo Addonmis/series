@@ -1,9 +1,9 @@
 <template>
     <div :class="[{scrolled: isScrolled == true}, menu__wrap]" ref="menu">
-        <div class="menu__tab">
+        <router-link to="/" class="menu__tab">
             <span>ГЛАВНАЯ</span>
             <span class="subTitle"></span>
-        </div>
+        </router-link>
         <div class="menu__tab">
             <span>КАТАЛОГ</span>
             <span class="subTitle">аниме</span>
@@ -34,6 +34,9 @@ export default {
         }
     },
     methods: {
+        /**
+         * checking the page scroll
+         */
         handleScroll(){
             window.pageYOffset < this.menuYSet
                 ? this.isScrolled = false
@@ -60,7 +63,8 @@ export default {
         position: fixed;
         top: 0;
         right: 0;
-        background: #b67cd5;
+        background: #333333;
+        margin-right: 5em;
     .menu__wrap
         display: flex;
         flex-direction: row;
@@ -77,6 +81,7 @@ export default {
             height: 50px;
             width: 100px;
             cursor: pointer;
+            text-decoration: none;
             &:hover
                 background: #cc96e9;
 </style>

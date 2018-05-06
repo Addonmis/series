@@ -41,7 +41,7 @@ export default {
         display: flex;
         flex-direction: column;
         .header__topMenu
-            background: lightgreen;
+            background: #fbf5e0;
             height: 10em;
             .theProfileMenu__container
                 float: right;
@@ -53,7 +53,7 @@ export default {
             border-top: 3px solid purple;
             border-bottom: 3px solid purple;
             padding: 0px 5em;
-            background: #b67cd5;
+            background: #333333;
         .subTitle
             font-size: 12px;
             height: 40%;

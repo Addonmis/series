@@ -1,7 +1,9 @@
 <template>
     <div class="page__wrap">
         <TheHeader></TheHeader>
-        <router-view></router-view>
+        <div class="page__content">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -22,4 +24,7 @@ export default {
     .page__wrap
         min-width: 1000px;
         height: 1000px;
+        background: #fbf5e0;
+        .page__content
+            margin: 0 5em;
 </style>
