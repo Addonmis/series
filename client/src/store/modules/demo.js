@@ -1,3 +1,4 @@
 export const state = {
-    demo: "demo"
+    isAuth: true,
+    profileName: "addonmis"
 }

@@ -1,0 +1,83 @@
+<template>
+    <div :class="[{scrolled: isScrolled == true}, menu__wrap]" ref="menu">
+        <div class="menu__tab">
+            <span>ГЛАВНАЯ</span>
+            <span class="subTitle"></span>
+        </div>
+        <div class="menu__tab">
+            <span>КАТАЛОГ</span>
+            <span class="subTitle">аниме</span>
+        </div>
+        <div class="menu__tab">
+            <span>ТОП-100</span>
+            <span class="subTitle">аниме</span>
+        </div>
+        <div class="menu__tab">
+            <span>КОНТАКТЫ</span>
+            <span class="subTitle"></span>
+        </div>
+        <TheProfileMenu v-show="isScrolled == true"></TheProfileMenu>
+    </div>
+</template>
+
+<script>
+import TheProfileMenu from "@/components/Header/TheProfileMenu.vue";
+
+export default {
+    name: "TheMenu",
+    data(){
+        return{
+            menu__wrap: "menu__wrap",
+            scrolled: "scrolled",
+            isScrolled: false,
+            menuYSet: 0
+        }
+    },
+    methods: {
+        handleScroll(){
+            window.pageYOffset < this.menuYSet
+                ? this.isScrolled = false
+                : this.isScrolled = true
+        }
+    },
+    mounted(){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        this.menuYSet = this.$refs.menu.getBoundingClientRect().bottom;
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    destroyed(){
+        window.removeEventListener("scroll", this.handleScroll);    
+    },
+    components: {
+        "TheProfileMenu": TheProfileMenu
+    }
+}
+</script>
+
+<style lang="sass">
+    .scrolled
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: #b67cd5;
+    .menu__wrap
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 50px;
+        float: right;
+        font-size: 16px;
+        .menu__tab
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            height: 50px;
+            width: 100px;
+            cursor: pointer;
+            &:hover
+                background: #cc96e9;
+</style>
+

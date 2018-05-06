@@ -2,7 +2,6 @@
     <div>
         Home
         {{home_data}}
-        {{$store.state.demo.demo}}
     </div>
 </template>
 

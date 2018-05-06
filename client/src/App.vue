@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheHeader from "@/components/TheHeader.vue";
+import TheHeader from "@/components/Header/TheHeader.vue";
 
 export default {
     name: "App",
@@ -16,8 +16,10 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
+    body
+        margin: 0px;
     .page__wrap
-        width: 1000px;
-        margin: 0 auto;
+        min-width: 1000px;
+        height: 1000px;
 </style>

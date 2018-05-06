@@ -6,7 +6,7 @@ import router from "./routes";
 
 sync(store, router);
 
-new Vue({
+const app = new Vue({
     el: "#app",
     store,
     router,
