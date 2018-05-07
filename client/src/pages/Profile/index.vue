@@ -6,7 +6,7 @@
             </div>
             <div class="profile__info">
                 <div class="profile__logo">
-                    <img src="../assets/no-photo.jpeg">
+                    <img src="../../assets/no-photo.jpeg">
                 </div>
                 <div class="profile__info__content">
                     <div>
