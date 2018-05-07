@@ -1,6 +1,6 @@
 <template>
     <div>
-        Home
+        Home t
         {{home_data}}
     </div>
 </template>
