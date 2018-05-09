@@ -21,33 +21,33 @@
                 <span>МОЕ МЕНЮ</span>
             </div>
             <div class="profile__profileMenu">
-                <div class="profileMenu__item">
+                <router-link to="/profile/friends" class="profileMenu__item">
                     <i class="fas fa-user-friends"></i>
                     <span>Друзья</span>
-                </div>
-                <div class="profileMenu__item">
+                </router-link>
+                <router-link to="/profile/comments" class="profileMenu__item">
                     <i class="far fa-comment"></i>
                     <span>Комментарии</span>
-                </div>
-                <div class="profileMenu__item">
+                </router-link>
+                <router-link to="/profile/settings" class="profileMenu__item">
                     <i class="fas fa-cog"></i>
                     <span>Настройки</span>
-                </div>
+                </router-link>
             </div>
         </div>
         <div class="profile__seriesMenu__wrap">
             <div class="profile__seriesMenu">
                 <div class="seriesMenu__menu">
-                    <div class="seriesMenu__menu__item" @click="currentSeriesMenuTab = 'watching'">
+                    <div :class="[{active__tab: currentSeriesMenuTab == 'watching'}, seriesMenu__menu__item]" @click="currentSeriesMenuTab = 'watching'">
                         <span>СМОТРЮ</span>
                     </div>
-                    <div class="seriesMenu__menu__item" @click="currentSeriesMenuTab = 'willWatch'">
+                    <div :class="[{active__tab: currentSeriesMenuTab == 'willWatch'}, seriesMenu__menu__item]" @click="currentSeriesMenuTab = 'willWatch'">
                         <span>БУДУ СМОТРЕТЬ</span>                        
                     </div>
-                    <div class="seriesMenu__menu__item" @click="currentSeriesMenuTab = 'viewed'">
+                    <div :class="[{active__tab: currentSeriesMenuTab == 'viewed'}, seriesMenu__menu__item]" @click="currentSeriesMenuTab = 'viewed'">
                         <span>ПРОСМОТРЕНО</span>
                     </div>
-                    <div class="seriesMenu__menu__item" @click="currentSeriesMenuTab = 'favorite'">                        
+                    <div :class="[{active__tab: currentSeriesMenuTab == 'favorite'}, seriesMenu__menu__item]" @click="currentSeriesMenuTab = 'favorite'">                        
                         <span>ЛЮБИМЫЕ</span>
                     </div>
                 </div>
@@ -66,7 +66,9 @@ export default {
     name: "Profile",
     data(){
         return{
-            currentSeriesMenuTab: "watching"
+            currentSeriesMenuTab: "watching",
+            seriesMenu__menu__item: "seriesMenu__menu__item",
+            active__tab: "active__tab"
         }
     },
     components: {
@@ -117,6 +119,8 @@ export default {
                 height: 2em;
                 padding: 0 0.5em;
                 border-bottom: 1px solid #f5f5f5;
+                text-decoration: none;
+                color: #000000;
                 i
                     width: 2em;
                 span
@@ -147,5 +151,7 @@ export default {
                         cursor: pointer;
                         &:hover
                             background: #cc96e9;
+                    .active__tab
+                        background: #cc96e9;
                     
 </style>
