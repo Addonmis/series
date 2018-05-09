@@ -38,7 +38,7 @@
         <div class="profile__seriesMenu__wrap">
             <div class="profile__seriesMenu">
                 <div class="seriesMenu__menu">
-                    <div class="seriesMenu__menu__item" @click="currentSeriesMenuTab = 'look'">
+                    <div class="seriesMenu__menu__item" @click="currentSeriesMenuTab = 'watching'">
                         <span>СМОТРЮ</span>
                     </div>
                     <div class="seriesMenu__menu__item" @click="currentSeriesMenuTab = 'willWatch'">
@@ -52,12 +52,7 @@
                     </div>
                 </div>
                 <div class="seriesMenu__sort"></div>
-                <div class="seriesMenu__content">
-                    <look v-if="currentSeriesMenuTab == 'look'"></look>
-                    <willWatch v-if="currentSeriesMenuTab == 'willWatch'"></willWatch>
-                    <viewed v-if="currentSeriesMenuTab == 'viewed'"></viewed>
-                    <favorite v-if="currentSeriesMenuTab == 'favorite'"></favorite>
-                </div>
+                <TheSeriesList :tab="currentSeriesMenuTab"></TheSeriesList>
             </div>
         </div>
     </div>
@@ -65,23 +60,17 @@
 
 <script>
 
-import look from "@/components/Profile/look.vue";
-import willWatch from "@/components/Profile/willWatch.vue";
-import viewed from "@/components/Profile/viewed.vue";
-import favorite from "@/components/Profile/favorite.vue";
+import TheSeriesList from "@/components/Profile/TheSeriesList.vue";
 
 export default {
     name: "Profile",
     data(){
         return{
-            currentSeriesMenuTab: "look"
+            currentSeriesMenuTab: "watching"
         }
     },
     components: {
-        "look": look,
-        "willWatch": willWatch,
-        "viewed": viewed,
-        "favorite": favorite
+        "TheSeriesList": TheSeriesList
     }
 }
 </script>
@@ -102,7 +91,6 @@ export default {
         .profile__info__wrap,
         .profile__profileMenu__wrap,
         .profile__seriesMenu__wrap
-            // border: 1px solid red;
             display: inline-block;
             background: #ffffff;
         .profile__info__wrap
@@ -159,4 +147,5 @@ export default {
                         cursor: pointer;
                         &:hover
                             background: #cc96e9;
+                    
 </style>

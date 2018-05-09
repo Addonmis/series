@@ -1,7 +1,6 @@
 const Koa = require("koa");
 const webpack = require("webpack");
 const koaWebpackMiddleware = require("koa-webpack-middleware");
-const webpackHotMiddleware = require("webpack-dev-middleware");
 const path = require("path");
 const fs = require("fs");
 
