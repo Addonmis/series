@@ -1,8 +1,8 @@
 <template>
     <div class="header__wrap">
         <div class="header__topMenu">
-            <div class="theProfileMenu__container">
-                <TheProfileMenu></TheProfileMenu>
+            <div class="ProfileMenu__container">
+                <ProfileMenu></ProfileMenu>
             </div>
         </div>
         <div class="header__bottomMenu">
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TheProfileMenu from "@/components/Header/TheProfileMenu.vue";
+import ProfileMenu from "@/components/Header/ProfileMenu.vue";
 import TheMenu from "@/components/Header/TheMenu.vue";
 
 export default {
@@ -30,7 +30,7 @@ export default {
 
     },
     components: {
-        "TheProfileMenu": TheProfileMenu,
+        "ProfileMenu": ProfileMenu,
         "TheMenu": TheMenu
     }
 }
@@ -43,7 +43,7 @@ export default {
         .header__topMenu
             background: #fbf5e0;
             height: 10em;
-            .theProfileMenu__container
+            .ProfileMenu__container
                 float: right;
                 height: 50px;
                 padding-top: 2em;

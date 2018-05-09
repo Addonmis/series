@@ -2,6 +2,9 @@ import Vue from "vue";
 import router from "vue-router";
 
 import Home from "@/pages/Home.vue";
+import Catalog from "@/pages/Catalog.vue";
+import Top from "@/pages/Top.vue";
+import Contacts from "@/pages/Contacts.vue";
 import Profile_index from "@/pages/Profile/index.vue";
 import Profile_settings from "@/pages/Profile/settings.vue";
 import Profile_friends from "@/pages/Profile/friends.vue";
@@ -15,6 +18,18 @@ export default new router({
         {
             path: "/",
             component: Home
+        },
+        {
+            path: "/catalog",
+            component: Catalog
+        },
+        {
+            path: "/top",
+            component: Top
+        },
+        {
+            path: "/contacts",
+            component: Contacts
         },
         {
             path: "/profile",

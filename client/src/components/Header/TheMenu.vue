@@ -4,24 +4,24 @@
             <span>ГЛАВНАЯ</span>
             <span class="subTitle"></span>
         </router-link>
-        <div class="menu__tab">
+        <router-link to="/catalog" class="menu__tab">
             <span>КАТАЛОГ</span>
             <span class="subTitle">аниме</span>
-        </div>
-        <div class="menu__tab">
+        </router-link>
+        <router-link to="/top" class="menu__tab">
             <span>ТОП-100</span>
             <span class="subTitle">аниме</span>
-        </div>
-        <div class="menu__tab">
+        </router-link>
+        <router-link to="/contacts" class="menu__tab">
             <span>КОНТАКТЫ</span>
             <span class="subTitle"></span>
-        </div>
-        <TheProfileMenu v-show="isScrolled == true"></TheProfileMenu>
+        </router-link>
+        <ProfileMenu v-show="isScrolled == true"></ProfileMenu>
     </div>
 </template>
 
 <script>
-import TheProfileMenu from "@/components/Header/TheProfileMenu.vue";
+import ProfileMenu from "@/components/Header/ProfileMenu.vue";
 
 export default {
     name: "TheMenu",
@@ -53,7 +53,7 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);    
     },
     components: {
-        "TheProfileMenu": TheProfileMenu
+        "ProfileMenu": ProfileMenu
     }
 }
 </script>

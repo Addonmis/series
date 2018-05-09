@@ -19,7 +19,7 @@
 
 <script>
 export default {
-    name: "TheProfileMenu",
+    name: "ProfileMenu",
     computed: {
         isAuth: function(){
             return this.$store.state.demo.isAuth || false;
