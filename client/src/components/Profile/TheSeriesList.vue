@@ -5,7 +5,9 @@
                 <img src="../../assets/test.jpeg">
             </div>
             <div class="item__status"></div>
-            <div class="item__text">{{item}}</div>
+            <div class="item__title">
+                <span>{{item}}</span>
+            </div>
             <div class="item__actions">
                 <div class="action__watching" v-if="tab == 'willWatch'">
                     <i class="far fa-eye"></i>
@@ -25,6 +27,7 @@
 </template>
 
 <script>
+
 export default {
     name: "TheSeriesList",
     props: {
@@ -39,31 +42,39 @@ export default {
         }
     }
 }
+
 </script>
 
 <style lang="sass" scoped>
     .seriesMenu__content
-        // border: 1px solid red;
         display: flex;
         flex-direction: column;
         .content__item
             display: flex;
             flex-direction: row;
             align-items: center;
-            border: 1px solid red;
-            background: #f5f5f5;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e2e2;
+            padding-left: 0.5em;
             height: 3.5em;
+            border-left: 2px solid #ffffff;
+            &:hover
+                border-left: 2px solid purple;
             .item__logo
-                border: 1px solid #f5f5f5;
+                cursor: pointer;
                 margin-right: 1em;
                 width: 3%;
+                height: 3em;
+                width: 35px;
                 img
-                    height: 3em;
-                    width: 35px;
+                    height: 100%;
+                    width: 100%;
             .item__status
                 width: 1%;
-            .item__text
+            .item__title
                 width: 80%;
+                span
+                    cursor: pointer;
             .item__actions
                 flex: 1;
                 display: flex;

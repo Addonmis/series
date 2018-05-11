@@ -25,12 +25,9 @@
 </template>
 
 <script>
-export default {
-    name: "Home",
-    data(){
-        return{
 
-        }
-    }
+export default {
+    name: "Home"
 }
+
 </script>

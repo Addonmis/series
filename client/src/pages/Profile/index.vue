@@ -72,14 +72,14 @@ export default {
         }
     },
     components: {
-        "TheSeriesList": TheSeriesList
+        TheSeriesList
     }
 }
+
 </script>
 
 <style lang="sass" scoped>
     .profile__wrap
-        margin: 20px 0px;
         width: 100%;
         display: inline-block;
         .profile__title
@@ -96,7 +96,7 @@ export default {
             display: inline-block;
             background: #ffffff;
         .profile__info__wrap
-            width: 70%;
+            width: 75%;
             .profile__info
                 display: flex;
                 flex-direction: row;

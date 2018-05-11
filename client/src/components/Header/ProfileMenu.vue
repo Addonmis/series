@@ -18,17 +18,19 @@
 </template>
 
 <script>
+
 export default {
     name: "ProfileMenu",
     computed: {
         isAuth: function(){
-            return this.$store.state.demo.isAuth || false;
+            return true;
         },
         profileName: function(){
-            return this.$store.state.demo.profileName || "";
+            return "Addonmis";
         }
     }
 }
+
 </script>
 
 <style lang="sass" scoped>

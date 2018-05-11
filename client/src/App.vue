@@ -16,14 +16,16 @@
 </template>
 
 <script>
+
 import TheHeader from "@/components/Header/TheHeader.vue";
 
 export default {
     name: "App",
     components: {
-        "TheHeader": TheHeader
+        TheHeader
     }
 }
+
 </script>
 
 <style lang="sass">
@@ -31,8 +33,7 @@ export default {
         margin: 0px;
     .page__wrap
         min-width: 1000px;
-        height: 1000px;
-        background: #fbf5e0;
+        background: #e2e2e2;
         .page__content
             margin: 0 5em;
             .page__content__search

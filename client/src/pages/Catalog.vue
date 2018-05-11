@@ -33,72 +33,27 @@
                     </div>
                 </div>
             </div>
-            <div class="catalog__filter">
-                <div class="catalog__filter__title">ФИЛЬТР АНИМЕ</div>
-                <div class="catalog__filter__content">
-                    <div class="catalog__filter__content__genre">
-                        <div class="catalog__filter__content__title">Выбрать жанры</div>
-                        <div class="catalog__filter__content__input">
-                            <input type="text" placeholder="Поиск по жанру">
-                        </div>
-                    </div>
-                    <div class="catalog__filter__content__type">
-                        <div class="catalog__filter__content__title">Тип аниме</div>
-                        <div class="catalog__filter__content__input">
-                            <input type="text" placeholder="Поиск по типу">
-                        </div>
-                    </div>
-                    <div class="catalog__filter__content__status">
-                        <div class="catalog__filter__content__title">Статус аниме</div>
-                        <div class="catalog__filter__content__input">
-                            <select>
-                                <option selected>Не учитывать</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="catalog__filter__content__countOfSeries">
-                        <div class="catalog__filter__content__title">Количество серий</div>
-                        <div class="catalog__filter__content__input">
-                            <select>
-                                <option selected>Не учитывать</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="catalog__filter__content__year">
-                        <div class="catalog__filter__content__title">Год</div>
-                        <div class="catalog__filter__content__inputs__wrap">
-                            <div class="catalog__filter__content__input">
-                                <input type="text" placeholder="от">
-                            </div>
-                            <div class="catalog__filter__content__input">
-                                <input type="text" placeholder="до">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="catalog__filter__content__sort">
-                        <div class="catalog__filter__content__title">Сортировать по</div>
-                        <div class="catalog__filter__content__input">
-                            <select>
-                                <option selected>Рейтингу</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="catalog__filter__content__button">ИСКАТЬ</div>
-                </div>
-            </div>
+            <SeriesFilter></SeriesFilter>
         </div>
     </div>
 </template>
 
 <script>
+
+import SeriesFilter from "@/components/SeriesFilter.vue";
+
 export default {
     name: "Catalog",
     data(){
         return{
             test_list: ["serialOne", "serialTwo", "serialThree"]
         }
+    },
+    components: {
+        SeriesFilter
     }
 }
+
 </script>
 
 <style lang="sass" scoped>
@@ -124,7 +79,6 @@ export default {
                         padding-right: 1em;
                         img
                             width: 8em;
-                            height: 10;
                     .catalog__content__item__content
                         display: flex;
                         flex-direction: column;
@@ -147,70 +101,4 @@ export default {
                                 margin-bottom: 0.5em;
                             .catalog__content__item__body__title
                                 font-weight: 700;
-            .catalog__filter
-                display: flex;
-                flex-direction: column;
-                width: 20em;
-                .catalog__filter__title
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
-                    background: #333333;
-                    color: #ffffff;
-                    padding: 0.5em 0;
-                    border-bottom: 3px solid purple;
-                .catalog__filter__content
-                    padding: 1em;
-                    background: #ffffff;
-                    .catalog__filter__content__genre,
-                    .catalog__filter__content__type,
-                    .catalog__filter__content__status,
-                    .catalog__filter__content__countOfSeries,
-                    .catalog__filter__content__sort
-                        display: flex;
-                        flex-direction: column;
-                        .catalog__filter__content__title
-                            margin: 0.5em 0;
-                        .catalog__filter__content__input
-                            border: 1px solid #cccccc;
-                            background: #ffffff;
-                            height: 2em;
-                            padding: 0 0.5em;
-                            input,
-                            select
-                                border: none;
-                                background: none;
-                                height: 100%;
-                                width: 100%;
-                    .catalog__filter__content__year
-                        display: flex;
-                        flex-direction: column;
-                        .catalog__filter__content__title
-                            margin: 0.5em 0;
-                        .catalog__filter__content__inputs__wrap
-                            display: flex;
-                            flex-direction: row;
-                            .catalog__filter__content__input
-                                border: 1px solid #cccccc;
-                                background: #ffffff;
-                                height: 2em;
-                                padding: 0 0.5em;
-                                input
-                                    border: none;
-                                    background: none;
-                                    height: 100%;
-                                    width: 100%;
-                                &:first-child
-                                    margin-right: 1em;
-                    .catalog__filter__content__button
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        align-items: center;
-                        background: #66D897;
-                        padding: 0.5em;
-                        margin-top: 2em;
-                        color: #ffffff;
-                        cursor: pointer;
 </style>

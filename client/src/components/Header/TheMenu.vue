@@ -21,6 +21,7 @@
 </template>
 
 <script>
+
 import ProfileMenu from "@/components/Header/ProfileMenu.vue";
 
 export default {
@@ -53,9 +54,10 @@ export default {
         window.removeEventListener("scroll", this.handleScroll);    
     },
     components: {
-        "ProfileMenu": ProfileMenu
+        ProfileMenu
     }
 }
+
 </script>
 
 <style lang="sass">

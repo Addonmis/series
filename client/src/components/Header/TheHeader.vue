@@ -13,27 +13,18 @@
 </template>
 
 <script>
+
 import ProfileMenu from "@/components/Header/ProfileMenu.vue";
 import TheMenu from "@/components/Header/TheMenu.vue";
 
 export default {
     name: "TheHeader",
-    data(){
-        return{
-
-        }
-    },
-    methods: {
-
-    },
-    mounted(){
-
-    },
     components: {
-        "ProfileMenu": ProfileMenu,
-        "TheMenu": TheMenu
+        ProfileMenu,
+        TheMenu
     }
 }
+
 </script>
 
 <style lang="sass">
@@ -41,8 +32,8 @@ export default {
         display: flex;
         flex-direction: column;
         .header__topMenu
-            background: #fbf5e0;
-            height: 10em;
+            background-image: url("../../assets/header_background.jpeg");
+            height: 9em;
             .ProfileMenu__container
                 float: right;
                 height: 50px;
