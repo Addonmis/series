@@ -38,13 +38,26 @@ export const mutations = {
 export const actions = {
     async login({ commit }, { login, password }){
         console.log("login", login, password);
+        const res = await axios({
+            method: "post",
+            headers: {"content-type": "application/x-www-form-urlencoded"},
+            url: "/api/auth/signIn",
+            data: {
+                username: login,
+                password: password
+            }
+        });
+        let authUser = true;
+        let userRole = parseInt(res.data.id_role, 10);
+        await localStorage.setItem("AUTH_TOKENS", `${res.data.tokens.accessToken} ${res.data.tokens.refreshToken}`);
+        commit("SET_USER", {authUser, userRole});
     },
     async registration({ commit }, { login, password, rePassword }){
         console.log("registration", login, password, rePassword);
     },
     async logout({ commit }){
-        if (localStorage.getItem("user_token") !== undefined && localStorage.getItem("user_token") !== null){
-            await localStorage.removeItem("user_token");
+        if (localStorage.getItem("AUTH_TOKENS") !== undefined && localStorage.getItem("AUTH_TOKENS") !== null){
+            await localStorage.removeItem("AUTH_TOKENS");
             commit("SET_USER", false);
         }
     }
