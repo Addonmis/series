@@ -47,10 +47,15 @@ export const actions = {
                 password: password
             }
         });
-        let authUser = true;
-        let userRole = parseInt(res.data.id_role, 10);
-        await localStorage.setItem("AUTH_TOKENS", `${res.data.tokens.accessToken} ${res.data.tokens.refreshToken}`);
-        commit("SET_USER", {authUser, userRole});
+        if (res.data.status == true){
+            let authUser = true;
+            let userRole = parseInt(res.data.id_role, 10);
+            await localStorage.setItem("AUTH_TOKENS", `${res.data.tokens.accessToken} ${res.data.tokens.refreshToken}`);
+            await commit("SET_USER", {authUser, userRole});
+            return true;
+        } else{
+            return res.data.message || "ошибка";
+        }
     },
     async registration({ commit }, { login, password, rePassword }){
         console.log("registration", login, password, rePassword);

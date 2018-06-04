@@ -16,7 +16,7 @@
             <span>КОНТАКТЫ</span>
             <span class="subTitle"></span>
         </router-link>
-        <ProfileMenu v-show="isScrolled == true"></ProfileMenu>
+        <ProfileMenu v-show="isScrolled == true" :isScrolled="isScrolled"></ProfileMenu>
     </div>
 </template>
 

@@ -83,13 +83,15 @@ export default {
         width: 100%;
         display: inline-block;
         .profile__title
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             color: #ffffff;
             background: #333333;
             border-bottom: 3px solid purple
             height: 2.5em;
             span
-                display: inline-block;
-                padding: 0.5em 0 0 0.5em;
+                padding: 0 0.5em;
         .profile__info__wrap,
         .profile__profileMenu__wrap,
         .profile__seriesMenu__wrap
