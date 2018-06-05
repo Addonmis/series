@@ -13,7 +13,7 @@
             </div>
             <div class="profile__tab logout">
                 <i class="fas fa-sign-out-alt"></i>
-                <span class="subTitle profile__logout">выйти</span>
+                <span @click="logout" class="subTitle profile__logout">выйти</span>
             </div>
         </div>
         <div class="profile__unauthorized" v-else>
@@ -67,13 +67,17 @@ export default {
         }
     },
     methods: {
-        async login(){
-            const res = await this.$store.dispatch("login", {login: this.username, password: this.password});
+        logout(){
+            this.$store.dispatch("logout");
             this.username = "";
             this.password = "";
-            console.log("res", res);
+        },
+        async login(){
+            const res = await this.$store.dispatch("login", {username: this.username, password: this.password});
+            this.username = "";
+            this.password = "";
             if (res === true){
-                console.log("true");
+                
             } else{
                 this.message = res;
             }

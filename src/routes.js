@@ -1,6 +1,8 @@
 import Vue from "vue";
 import router from "vue-router";
 
+import checkAuth from "@/helpers/checkAuth";
+
 import Home from "@/pages/Home.vue";
 import Catalog from "@/pages/Catalog.vue";
 import Top from "@/pages/Top.vue";
@@ -33,19 +35,23 @@ export default new router({
         },
         {
             path: "/profile",
-            component: Profile_index
+            component: Profile_index,
+            beforeEnter: checkAuth
         },
         {
             path: "/profile/settings",
-            component: Profile_settings
+            component: Profile_settings,
+            beforeEnter: checkAuth
         },
         {
             path: "/profile/friends",
-            component: Profile_friends
+            component: Profile_friends,
+            beforeEnter: checkAuth
         },
         {
             path: "/profile/comments",
-            component: Profile_comments
+            component: Profile_comments,
+            beforeEnter: checkAuth
         }
     ]
 });

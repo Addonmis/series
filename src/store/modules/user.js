@@ -36,26 +36,24 @@ export const mutations = {
 };
 
 export const actions = {
-    async login({ commit }, { login, password }){
-        console.log("login", login, password);
-        const res = await axios({
-            method: "post",
-            headers: {"content-type": "application/x-www-form-urlencoded"},
-            url: "/api/auth/signIn",
-            data: {
-                username: login,
-                password: password
-            }
-        });
-        if (res.data.status == true){
-            let authUser = true;
-            let userRole = parseInt(res.data.id_role, 10);
-            await localStorage.setItem("AUTH_TOKENS", `${res.data.tokens.accessToken} ${res.data.tokens.refreshToken}`);
-            await commit("SET_USER", {authUser, userRole});
-            return true;
-        } else{
-            return res.data.message || "ошибка";
+    async login({ commit }, { username, password }){
+        console.log("login", username, password);
+        let res;
+        try{
+            res = await axios({
+                method: "post",
+                // headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                url: "http://localhost:8080/api/auth/signIn",
+                data: {username, password}
+            });
+        } catch(e){
+            return e.response.data.message || "ошибка";
         }
+        let status = true;
+        let role = parseInt(res.data.id_role, 10);
+        await localStorage.setItem("AUTH_TOKENS", `${res.data.tokens.accessToken} ${res.data.tokens.refreshToken}`);
+        await commit("SET_USER", {status, role});
+        return true;
     },
     async registration({ commit }, { login, password, rePassword }){
         console.log("registration", login, password, rePassword);
