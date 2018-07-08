@@ -1,7 +1,7 @@
 import Vue from "vue";
 import router from "vue-router";
 
-import checkAuth from "@/helpers/checkAuth";
+import checkAuth from "@/handlers/checkAuth";
 
 import Home from "@/pages/Home.vue";
 import Catalog from "@/pages/Catalog.vue";

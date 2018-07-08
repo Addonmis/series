@@ -2,7 +2,7 @@
     <div class="profile__wrap">
         <div class="profile__info__wrap">
             <div class="profile__title">
-                <span>ВАШ ПРОФИЛЬ, ADDONMIS</span>
+                <span>ВАШ ПРОФИЛЬ, {{profileInfo.username.toUpperCase()}}</span>
             </div>
             <div class="profile__info">
                 <div class="profile__logo">
@@ -11,7 +11,7 @@
                 <div class="profile__info__content">
                     <div>
                         <span>Дата регистрации: </span>
-                        <span>1 Мая 2018</span>
+                        <span>{{profileInfo.dateOfRegistration}}</span>
                     </div>
                 </div>
             </div>
@@ -60,6 +60,10 @@
 
 <script>
 
+import axios from "axios";
+
+import { mapGetters } from "vuex";
+
 import TheSeriesList from "@/components/Profile/TheSeriesList.vue";
 
 export default {
@@ -71,8 +75,28 @@ export default {
             active__tab: "active__tab"
         }
     },
+    computed: {
+        ...mapGetters([
+            "profileInfo"
+        ])
+    },
     components: {
         TheSeriesList
+    },
+    methods: {
+        async getUserData(){
+            const data = await axios({
+                method: "post",
+                url: "http://localhost:8080/api/profile",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("AUTH_TOKENS")}`
+                }
+            });
+            console.log("data", data);
+        }
+    },
+    mounted(){
+        // this.getUserData();
     }
 }
 

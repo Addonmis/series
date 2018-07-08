@@ -2,7 +2,7 @@
     <div class="profile__wrap">
         <div class="profile__authorized" v-if="isAuth == true">
             <router-link to="/profile" class="profile__tab account">
-                <span class="profile__name">{{profileName}}</span>
+                <span class="profile__name">{{profileInfo.username}}</span>
                 <span class="subTitle">профиль</span>
             </router-link>
             <div class="profile__tab notices">
@@ -11,9 +11,9 @@
             <div class="profile__tab messages">
                 <i class="far fa-envelope"></i>
             </div>
-            <div class="profile__tab logout">
+            <div class="profile__tab logout" @click="logout">
                 <i class="fas fa-sign-out-alt"></i>
-                <span @click="logout" class="subTitle profile__logout">выйти</span>
+                <span class="subTitle profile__logout">выйти</span>
             </div>
         </div>
         <div class="profile__unauthorized" v-else>
@@ -41,6 +41,8 @@
 
 <script>
 
+import { mapGetters } from "vuex";
+
 export default {
     name: "ProfileMenu",
     props: {
@@ -59,26 +61,24 @@ export default {
         }
     },
     computed: {
-        isAuth: function(){
-            return this.$store.state.user.authUser;
-        },
-        profileName: function(){
-            return "Addonmis";
-        }
+        ...mapGetters([
+            "isAuth",
+            "profileInfo"
+        ])
     },
     methods: {
-        logout(){
-            this.$store.dispatch("logout");
+        async logout(){
+            await this.$store.dispatch("logout");
             this.username = "";
             this.password = "";
+            this.loginForm = false;
+            this.$router.push('/');
         },
         async login(){
             const res = await this.$store.dispatch("login", {username: this.username, password: this.password});
             this.username = "";
             this.password = "";
-            if (res === true){
-                
-            } else{
+            if (res != true){
                 this.message = res;
             }
         },

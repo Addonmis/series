@@ -1,7 +1,6 @@
 import Vue from "vue";
-import axios from "axios";
 
-import defaultAuth from "@/helpers/defaultAuth";
+import defaultAuth from "@/handlers/defaultAuth";
 
 import { sync } from "vuex-router-sync";
 import App from "@/App.vue";

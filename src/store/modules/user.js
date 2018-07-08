@@ -4,13 +4,27 @@ export const state = {
     authUser: false,
     userRole: null,
     profile: {
-        name: "",
+        username: "",
         img: "",
+        gender: "",
         dateOfRegistration: "",
+        dateOfBorth: "",
         watching: [],
         willWatch: [],
         viewed: [],
         favorite: []
+    }
+};
+
+export const getters = {
+    isAuth: state => state.authUser,
+    profileInfo: state => {
+        return {
+            username: state.profile.username,
+            dateOfRegistration: state.profile.dateOfRegistration,
+            gender: state.profile.gender,
+            dateOfBorth: state.profile.dateOfBorth
+        }
     }
 };
 
@@ -22,6 +36,7 @@ export const mutations = {
         } else{
             state.authUser = data.status;
             state.userRole = data.role;
+            state.profile.username = data.username;
         }
     },
     SET_PROFILE_DATA: function(state, data){
@@ -52,7 +67,7 @@ export const actions = {
         let status = true;
         let role = parseInt(res.data.id_role, 10);
         await localStorage.setItem("AUTH_TOKENS", `${res.data.tokens.accessToken} ${res.data.tokens.refreshToken}`);
-        await commit("SET_USER", {status, role});
+        await commit("SET_USER", {status, role, username});
         return true;
     },
     async registration({ commit }, { login, password, rePassword }){
